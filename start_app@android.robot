@@ -13,6 +13,7 @@ ${APP_PACKAGE}
 ${APP_ACTIVITY}
 ${ignoreHiddenApiPolicyError}
 ${uiautomator2ServerInstallTimeout}
+${uiautomator2ServerLaunchTimeout}
 
 *** Test Cases ***
 
@@ -28,7 +29,9 @@ Start App
     Open Application  ${APPIUM_SERVER}  automationName=${AUTOMATION_NAME}
       ...  platformName=${PLATFORM_NAME}  platformVersion=${PLATFORM_VERSION}
       ...  app=${APP}  appPackage=${APP_PACKAGE}  appActivity=${APP_ACTIVITY}
-      ...  deviceName=${DEVICE_NAME} uiautomator2ServerInstallTimeout=${uiautomator2ServerInstallTimeout}
+      ...  deviceName=${DEVICE_NAME}
+      ...  uiautomator2ServerInstallTimeout=${uiautomator2ServerInstallTimeout}
+      ...  uiautomator2ServerLaunchTimeout=${uiautomator2ServerLaunchTimeout}
       ...  ignoreHiddenApiPolicyError=${ignoreHiddenApiPolicyError}
 
 Close App

@@ -17,7 +17,7 @@ Update Wayang Settings
     [Documentation]    Update the wayang settings
     # ${current_activity}=    Get Current Activity
     # Should Be Equal As Strings    ${current_activity}    ${MAIN_ACTIVITY_ID}
-    Click Element    ${SETTINGS_BUTTON_ID}
+    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_ID}
     Sleep    ${UI_OPERATION_TIMEOUT}
     Update Settings    ${wayang_url}    ${wayang_device}
 
@@ -50,3 +50,11 @@ Set Input Text
     [Documentation]    Set input text for the given element
     Wait Until Element Is Visible    ${element_id}    timeout=${UI_OPERATION_TIMEOUT}
     Input Text    ${element_id}    ${text}
+
+Run With Screenshot Handling
+    [Arguments]    ${keyword}    @{args}
+    [Documentation]    Run a keyword and handle screenshot errors
+    ${status}    ${message}=    Run Keyword And Ignore Error    ${keyword}    @{args}
+    Run Keyword If    '${status}' == 'FAIL' and 'TakeScreenshotException' in '''${message}'''    Log    Screenshot failed due to secure view, continuing test    WARN
+    Run Keyword If    '${status}' == 'FAIL' and 'TakeScreenshotException' not in '''${message}'''    Fail    ${message}
+    RETURN    ${status}

@@ -37,6 +37,9 @@ Start App
       ...  autoGrantPermissions=${autoGrantPermissions}
       ...  adbExecTimeout=${adbExecTimeout}
       ...  disableAndroidWatchers=true
+      ...  disableWindowAnimation=true
+      ...  noReset=false
+      ...  ensureWebviewsHavePages=true
 
 Close App
     [Documentation]  Close the app

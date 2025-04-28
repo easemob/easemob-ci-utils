@@ -11,17 +11,17 @@ ${APP}
 ${AUTOMATION_NAME}  UiAutomator2
 ${APP_PACKAGE}
 ${APP_ACTIVITY}
-${ignoreHiddenApiPolicyError}
-${uiautomator2ServerInstallTimeout}
-${uiautomator2ServerLaunchTimeout}
+${ignoreHiddenApiPolicyError}    true
+${autoGrantPermissions}    true
+${uiautomator2ServerInstallTimeout}    120000
+${uiautomator2ServerLaunchTimeout}    120000
+${START_APP_TIMEOUT}  10s
 
 *** Test Cases ***
-
-# START_APP placeholder
-
 Start the app
     [Documentation]  Start the app with the given capabilities
     Start App
+    Sleep  ${START_APP_TIMEOUT}
 
 *** Keywords ***
 Start App
@@ -33,24 +33,8 @@ Start App
       ...  uiautomator2ServerInstallTimeout=${uiautomator2ServerInstallTimeout}
       ...  uiautomator2ServerLaunchTimeout=${uiautomator2ServerLaunchTimeout}
       ...  ignoreHiddenApiPolicyError=${ignoreHiddenApiPolicyError}
+      ...  autoGrantPermissions=${autoGrantPermissions}
 
 Close App
     [Documentation]  Close the app
     Close Application
-
-Click Element
-    [Documentation]  Click the given element
-    [Arguments]  ${element}
-    Click Element  ${element}
-
-Get Input Text
-    [Documentation]  Get input text from the given element
-    [Arguments]  ${element}
-    ${text}=  Get Text  ${element}
-    RETURN  ${text}
-
-Set Input Text
-    [Documentation]  Set input text to the given element
-    [Arguments]  ${element}  ${text}
-    Clear Text  ${element}
-    Input Text  ${element}  ${text}

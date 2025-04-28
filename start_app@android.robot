@@ -36,6 +36,7 @@ Start App
       ...  ignoreHiddenApiPolicyError=${ignoreHiddenApiPolicyError}
       ...  autoGrantPermissions=${autoGrantPermissions}
       ...  adbExecTimeout=${adbExecTimeout}
+      ...  disableAndroidWatchers=true
 
 Close App
     [Documentation]  Close the app

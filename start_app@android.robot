@@ -15,6 +15,7 @@ ${ignoreHiddenApiPolicyError}    true
 ${autoGrantPermissions}    true
 ${uiautomator2ServerInstallTimeout}    120000
 ${uiautomator2ServerLaunchTimeout}    120000
+${adbExecTimeout}    80000
 ${START_APP_TIMEOUT}  10s
 
 *** Test Cases ***
@@ -34,6 +35,7 @@ Start App
       ...  uiautomator2ServerLaunchTimeout=${uiautomator2ServerLaunchTimeout}
       ...  ignoreHiddenApiPolicyError=${ignoreHiddenApiPolicyError}
       ...  autoGrantPermissions=${autoGrantPermissions}
+      ...  adbExecTimeout=${adbExecTimeout}
 
 Close App
     [Documentation]  Close the app

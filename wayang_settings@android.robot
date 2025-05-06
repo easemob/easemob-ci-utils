@@ -16,12 +16,10 @@ ${UI_OPERATION_TIMEOUT}     5s
 *** Test Cases ***
 Update Wayang Settings
     [Documentation]    Update the wayang settings
-    # Handle permission dialog if present
-    ${is_permission_activity}=    Run Keyword And Return Status    Should Contain    ${current_activity}    permissioncontroller
-    Run Keyword If    ${is_permission_activity}    Click Element    id=com.android.permissioncontroller:id/permission_allow_button
+    Try Close Perm Dialog
     
     # Wait for the main activity containing the settings button to be visible
-    Wait Until Page Contains Element    ${SETTINGS_BUTTON_XPATH}    timeout=${UI_OPERATION_TIMEOUT}
+    Wait Until Page Contains Element    ${SETTINGS_BUTTON_ID}    timeout=${UI_OPERATION_TIMEOUT}
     ${element_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${SETTINGS_BUTTON_ID}
     Run Keyword If    ${element_exists}    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_ID}
     ...    ELSE    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_XPATH}
@@ -32,10 +30,7 @@ Update Wayang Settings
 Update Settings
     [Arguments]    ${wayang_url}    ${wayang_device}
     [Documentation]    Update settings
-    ${current_activity}=    Get Current Activity
-    # Handle permission dialog if present
-    ${is_permission_activity}=    Run Keyword And Return Status    Should Contain    ${current_activity}    permissioncontroller
-    Run Keyword If    ${is_permission_activity}    Click Element    id=com.android.permissioncontroller:id/permission_allow_button
+    Try Close Perm Dialog
     
     # Wait for UI elements instead of checking exact activity name
     Wait Until Element Is Visible    ${WAYANG_URL_ID}    timeout=${UI_OPERATION_TIMEOUT}
@@ -45,6 +40,12 @@ Update Settings
     Sleep    ${UI_OPERATION_TIMEOUT}
     Click Element    ${SETTINGS_CONFIRM_BUTTON_ID}
     Sleep    ${UI_OPERATION_TIMEOUT}
+
+Try Close Perm Dialog
+    [Documentation]    Try to close the permission dialog if it appears
+    ${current_activity}=    Get Current Activity
+    ${is_permission_activity}=    Run Keyword And Return Status    Should Contain    ${current_activity}    permissioncontroller
+    Run Keyword If    ${is_permission_activity}    Click Element    id=com.android.permissioncontroller:id/permission_allow_button
 
 Get Current Activity
     [Documentation]    Get the current activity

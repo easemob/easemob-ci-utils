@@ -3,15 +3,7 @@ Documentation     Start the app
 Library  AppiumLibrary
 
 *** Variables ***
-${APPIUM_SERVER}
-${PLATFORM_NAME}
-${PLATFORM_VERSION}
-${DEVICE_NAME}
-${UDID}    emulator-5554
-${APP}
 ${AUTOMATION_NAME}  UiAutomator2
-${APP_PACKAGE}
-${APP_ACTIVITY}
 ${ignoreHiddenApiPolicyError}    true
 ${autoGrantPermissions}    true
 ${uiautomator2ServerInstallTimeout}    120000
@@ -22,8 +14,10 @@ ${START_APP_TIMEOUT}  10s
 *** Test Cases ***
 Start the app
     [Documentation]  Start the app with the given capabilities
+    Log To Console  Starting app
     Start App
     Sleep  ${START_APP_TIMEOUT}
+    Log To Console  App started successfully
 
 *** Keywords ***
 Start App

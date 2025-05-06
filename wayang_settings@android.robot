@@ -4,12 +4,12 @@ Library  AppiumLibrary
 
 *** Variables ***
 ${MAIN_ACTIVITY_ID}    .view.ViewActivity
-${SETTINGS_BUTTON_ID}    iv_connect_status
+${SETTINGS_BUTTON_ID}    id=iv_connect_status
 ${SETTINGS_ACTIVITY_ID}    .view.SettingActivity
-${SETTINGS_CONFIRM_BUTTON_ID}   confirm
-${WAYANG_URL_ID}    et_server_url
-${WAYANG_DEVICE_ID}    et_device_name
-${CONNECT_BUTTON_ID}    bt_connet
+${SETTINGS_CONFIRM_BUTTON_ID}   id=confirm
+${WAYANG_URL_ID}    id=et_server_url
+${WAYANG_DEVICE_ID}    id=et_device_name
+${CONNECT_BUTTON_ID}    id=bt_connet
 ${UI_OPERATION_TIMEOUT}     5s
 
 *** Test Cases ***

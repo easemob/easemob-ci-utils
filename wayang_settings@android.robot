@@ -16,8 +16,11 @@ ${UI_OPERATION_TIMEOUT}     5s
 *** Test Cases ***
 Update Wayang Settings
     [Documentation]    Update the wayang settings
-    # ${current_activity}=    Get Current Activity
-    # Should Be Equal As Strings    ${current_activity}    ${MAIN_ACTIVITY_ID}
+    # Handle permission dialog if present
+    ${is_permission_activity}=    Run Keyword And Return Status    Should Contain    ${current_activity}    permissioncontroller
+    Run Keyword If    ${is_permission_activity}    Click Element    id=com.android.permissioncontroller:id/permission_allow_button
+    
+    # Wait for the main activity containing the settings button to be visible
     Wait Until Page Contains Element    ${SETTINGS_BUTTON_XPATH}    timeout=${UI_OPERATION_TIMEOUT}
     ${element_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${SETTINGS_BUTTON_ID}
     Run Keyword If    ${element_exists}    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_ID}

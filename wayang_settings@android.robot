@@ -4,12 +4,13 @@ Library  AppiumLibrary
 
 *** Variables ***
 ${MAIN_ACTIVITY_ID}    .view.ViewActivity
-${SETTINGS_BUTTON_ID}    id=iv_connect_status
+${SETTINGS_BUTTON_ID}    iv_connect_status
+${SETTINGS_BUTTON_XPATH}    //android.widget.ImageView[contains(@resource-id, 'connect_status')]
 ${SETTINGS_ACTIVITY_ID}    .view.SettingActivity
-${SETTINGS_CONFIRM_BUTTON_ID}   id=confirm
-${WAYANG_URL_ID}    id=et_server_url
-${WAYANG_DEVICE_ID}    id=et_device_name
-${CONNECT_BUTTON_ID}    id=bt_connet
+${SETTINGS_CONFIRM_BUTTON_ID}   confirm
+${WAYANG_URL_ID}    et_server_url
+${WAYANG_DEVICE_ID}    et_device_name
+${CONNECT_BUTTON_ID}    bt_connet
 ${UI_OPERATION_TIMEOUT}     5s
 
 *** Test Cases ***
@@ -17,7 +18,10 @@ Update Wayang Settings
     [Documentation]    Update the wayang settings
     # ${current_activity}=    Get Current Activity
     # Should Be Equal As Strings    ${current_activity}    ${MAIN_ACTIVITY_ID}
-    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_ID}
+    Wait Until Page Contains Element    ${SETTINGS_BUTTON_XPATH}    timeout=${UI_OPERATION_TIMEOUT}
+    ${element_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${SETTINGS_BUTTON_ID}
+    Run Keyword If    ${element_exists}    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_ID}
+    ...    ELSE    Run With Screenshot Handling    Click Element    ${SETTINGS_BUTTON_XPATH}
     Sleep    ${UI_OPERATION_TIMEOUT}
     Update Settings    ${wayang_url}    ${wayang_device}
 

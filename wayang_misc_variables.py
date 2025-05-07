@@ -5,5 +5,5 @@ RunOrgToken = "NORUN"
 RunAppToken = "RUN"
 RunUserToken = "RUN"
 bReport = False
-bClear = False
+bClear = True
 ApiInterval = 2

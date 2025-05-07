@@ -1,0 +1,9 @@
+urlevn = "ebs"
+orgName = "easemob-demo"
+appName = "zk"
+RunOrgToken = "NORUN"
+RunAppToken = "RUN"
+RunUserToken = "RUN"
+bReport = False
+bClear = False
+ApiInterval = 2

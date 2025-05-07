@@ -13,7 +13,7 @@ ${START_APP_TIMEOUT}  10s
 
 *** Test Cases ***
 Start the app
-    [Documentation]  Start the app with the given capabilities
+    [Documentation]  Start app
     Log To Console  Starting app
     Start App
     Sleep  ${START_APP_TIMEOUT}
@@ -21,7 +21,7 @@ Start the app
 
 *** Keywords ***
 Start App
-    [Documentation]  Start the app with the given capabilities
+    [Documentation]  Start App Keyword
     Open Application  ${APPIUM_SERVER}  automationName=${AUTOMATION_NAME}
       ...  platformName=${PLATFORM_NAME}  platformVersion=${PLATFORM_VERSION}
       ...  app=${APP}  appPackage=${APP_PACKAGE}  appActivity=${APP_ACTIVITY}

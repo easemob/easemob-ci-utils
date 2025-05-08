@@ -1,6 +1,6 @@
 urlevn = "ebs"
 orgName = "easemob-demo"
-appName = "zk"
+appName = "yxd"
 RunOrgToken = "NORUN"
 RunAppToken = "RUN"
 RunUserToken = "RUN"

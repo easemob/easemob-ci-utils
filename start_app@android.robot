@@ -36,6 +36,8 @@ Start App
       ...  disableWindowAnimation=true
       ...  noReset=false
       ...  ensureWebviewsHavePages=true
+      ...  dontStopAppOnReset=true
+      ...  closeApp=false
 
 Close App
     [Documentation]  Close the app

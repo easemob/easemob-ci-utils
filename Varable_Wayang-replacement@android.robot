@@ -1,12 +1,10 @@
 *** Variables ***
-# ${WsUrl}    wss://webdemo.agora.io:8083/iov/websocket/dual?topic=
 ${WsUrl}    ws://180.184.175.123:2000/iov/websocket/dual?topic=
-# ${WsUrl}    ws://172.17.4.29:2000/iov/websocket/dual?topic=
-&{Wayang1Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE0}    device=Android    WSconn=    WShandle=    alias=    consolealias=
-&{Wayang2Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE1}    device=Android   WSconn=    WShandle=    alias=    consolealias=
-&{Wayang3Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE2}    device=Android    WSconn=    WShandle=    alias=    consolealias=
-&{Wayang4Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE3}    device=Android   WSconn=    WShandle=    alias=    consolealias=
-&{Wayang5Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE4}    device=Android   WSconn=    WShandle=    alias=    consolealias=
+&{Wayang1Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE0}    device=Mobile    WSconn=    WShandle=    alias=    consolealias=
+&{Wayang2Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE1}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
+&{Wayang3Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE2}    device=Mobile    WSconn=    WShandle=    alias=    consolealias=
+&{Wayang4Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE3}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
+&{Wayang5Res}        WSUrl=${WsUrl}    topic=${WAYANG_DEVICE4}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
 ${savecasepath}    ./jsoncase
 &{WSproperties}    timeout=3    delay=10    retry=3
 ${fakerlocale}    zh_CN

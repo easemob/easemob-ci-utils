@@ -7,8 +7,9 @@ ${APP_KEY_ID}    et_app_key
 ${WAYANG_URL_ID}    et_url
 ${DEVICE_ID}    topicInput
 ${CONNECT_BUTTON_ID}    btnConnect
-${UI_OPERATION_INTERVAL}     5s
+${TIME_TO_WAITFOR_UI}    5s
 ${TIME_TO_WAITFOR_CONNECT}    10s
+${UI_OPERATION_INTERVAL}     5s
 
 *** Test Cases ***
 Update App Settings
@@ -22,10 +23,11 @@ Update Settings
     [Documentation]    Update settings
     Try Close Perm Dialog
 
-    Wait Until Element Is Visible    ${APP_KEY_ID}    timeout=${UI_OPERATION_INTERVAL}
+    Wait Until Element Is Visible    ${APP_KEY_ID}    timeout=${TIME_TO_WAITFOR_UI}
     Set Input Text    ${APP_KEY_ID}    ${app_key}
     Set Input Text    ${WAYANG_URL_ID}    ${wayang_url}
     Set Input Text    ${DEVICE_ID}    ${device}
+    Sleep    ${UI_OPERATION_INTERVAL}
     Click Element    ${CONNECT_BUTTON_ID}
     Sleep    ${TIME_TO_WAITFOR_CONNECT}
 

@@ -10,6 +10,7 @@ ${uiautomator2ServerInstallTimeout}    120000
 ${uiautomator2ServerLaunchTimeout}    120000
 ${adbExecTimeout}    80000
 ${START_APP_TIMEOUT}  10s
+${APP_ACTIVITY}
 
 *** Test Cases ***
 Start the app

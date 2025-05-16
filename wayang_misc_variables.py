@@ -7,6 +7,6 @@ RunUserToken = "RUN"
 bReport = False
 bClear = True
 ApiInterval = 2
-wayang_timeout = 5
+wayang_timeout = 10
 wayang_delay = 10
 wayang_retry = 3

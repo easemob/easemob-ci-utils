@@ -1,5 +1,6 @@
 *** Variables ***
-${WsUrl}    ws://180.184.175.123:2000/iov/websocket/dual?topic=
+# ${WsUrl}    ws://180.184.175.123:2000/iov/websocket/dual?topic=
+${WsUrl}    ws://localhost:2000/iov/websocket/dual?topic=
 &{Wayang1Res}        WSUrl=${WsUrl}    topic=${WAYANG_TOPIC0}    device=Mobile    WSconn=    WShandle=    alias=    consolealias=
 &{Wayang2Res}        WSUrl=${WsUrl}    topic=${WAYANG_TOPIC1}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
 &{Wayang3Res}        WSUrl=${WsUrl}    topic=${WAYANG_TOPIC2}    device=Mobile    WSconn=    WShandle=    alias=    consolealias=

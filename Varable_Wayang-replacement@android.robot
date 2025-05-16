@@ -6,7 +6,7 @@ ${WsUrl}    ws://180.184.175.123:2000/iov/websocket/dual?topic=
 &{Wayang4Res}        WSUrl=${WsUrl}    topic=${WAYANG_TOPIC3}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
 &{Wayang5Res}        WSUrl=${WsUrl}    topic=${WAYANG_TOPIC4}    device=Mobile   WSconn=    WShandle=    alias=    consolealias=
 ${savecasepath}    ./jsoncase
-&{WSproperties}    timeout=3    delay=10    retry=3
+&{WSproperties}    timeout=${wayang_timeout}    delay=10    retry=3
 ${fakerlocale}    zh_CN
 &{SDKBVlist}    nicknamemin=${1}    nicknamemax=${100}    usernamemin=${1}    usernamemax=${64}    passwordmin=${1}    
 @{deluserlist}

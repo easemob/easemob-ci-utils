@@ -10,14 +10,14 @@ ${uiautomator2ServerInstallTimeout}    120000
 ${uiautomator2ServerLaunchTimeout}    120000
 ${adbExecTimeout}    80000
 ${START_APP_TIMEOUT}  10s
+${expected_ui_element}   et_app_key
 ${APP_ACTIVITY}
-
 *** Test Cases ***
 Start the app
     [Documentation]  Start app
     Log To Console  Starting app
     Start App
-    Sleep  ${START_APP_TIMEOUT}
+    Wait Until Page Contains Element  ${expected_ui_element}  timeout=${START_APP_TIMEOUT}
     Log To Console  App started successfully
 
 *** Keywords ***
